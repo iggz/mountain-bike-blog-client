@@ -37,6 +37,7 @@ class AuthorList extends Component {
         return (
             <>
                 <h2>List of Authors</h2>
+                <h3>Click to find out more</h3>
                 <ul>
                     { authors.map((author) => {
                         return (

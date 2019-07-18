@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "./BlogList.css"
 
 class BlogList extends Component {
   constructor(props) {
@@ -36,11 +37,11 @@ class BlogList extends Component {
 
     return (
       <>
-        <h2>Mountain Biking Blog</h2>
-        <ul>
+        <h2 className="BlogListTitle">Mountain Biking Blog</h2>
+        <ul className="BlogList">
           { posts.map((post) => {
             return (
-              <li key={ `post-${post.id}` }>
+              <li className="BlogListItem" key={ `post-${post.id}` }>
                 <Link to={ `/post/${post.id}` }>{ post.title }</Link>
               </li>
             );

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./BlogAddPost.css";
 
 class AddPost extends Component {
     state = {
@@ -31,7 +32,7 @@ class AddPost extends Component {
         const content = this.state.content;
         const author_id = this.state.author_id;
         const data = { title, content, author_id };
-        const url = `http://localhost:3000/v1/post/add`;
+        const url = `http://localhost:3000/v1/post/add_post`;
         const response = fetch(url, {
             method: "POST",
             headers: {
@@ -53,7 +54,7 @@ class AddPost extends Component {
     render() {
         return (
             <>
-                <form onSubmit={ this.handleSubmit }>
+                <form className="AddPostForm" onSubmit={ this.handleSubmit }>
                     <label> Title: </label>
                     <input
                         type="text"
@@ -61,19 +62,22 @@ class AddPost extends Component {
                         name="title"
                         value={ this.state.title }
                     />
+                    <br />
                     <label> Content: </label>
-                    <input
+                    <input className="AddPostContent"
                         type="text"
                         onChange={ this.handleContentChange }
                         name="content"
                     />
+                    <br />
                     <label> Author ID: </label>
                     <input
                         type="text"
                         onChange={ this.handleAuthorChange }
                         name="author_id"
                     />
-                    <input type="submit" value="Submit" />
+                    <br />
+                    <input className="button" type="submit" value="Submit" />
                 </form>
             </>
         );

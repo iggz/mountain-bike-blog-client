@@ -9,7 +9,7 @@ class EditPost extends Component {
 
     async componentDidMount() {
         const post = await this.loadData();
-        console.log("editPost post is: ", post);
+        console.log("updatePost post is: ", post);
         this.setState({
             title: post.title,
             content: post.content,
@@ -51,7 +51,7 @@ class EditPost extends Component {
         const content = this.state.content;
         const author_id = this.state.author_id;
         const data = { title, content, author_id };
-        const url = `http://localhost:3000/v1/post/update/${postId}`;
+        const url = `http://localhost:3000/v1/update/${postId}`;
         const response = fetch(url, {
             method: "PUT",
             headers: {
@@ -79,8 +79,8 @@ class EditPost extends Component {
                     <input
                         type="text"
                         onChange={ this.handleTitleChange }
-                        name="title"
                         value={ this.state.title }
+                        name="title"
                     />
                     <br />
                     <label> Content: </label>

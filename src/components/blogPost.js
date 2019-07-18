@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "./BlogPost.css";
 
 class BlogPost extends Component {
   state = {
@@ -20,7 +21,7 @@ class BlogPost extends Component {
     const postId = this.props.match.params.post_id;
     const url = `http://localhost:3000/v1/post/${postId}`;
     const response = await fetch(url);
-    const data = response.json();
+    const data = await response.json();
     return data;
   };
 
@@ -36,14 +37,14 @@ class BlogPost extends Component {
     const { post } = this.state;
     return (
       <div>
-        <h2> Title: { post.title }</h2>
+        <h2 className="BlogPostTitle"> Title: { post.title }</h2>
         <p> Content: { post.content }</p>
         <p> Author: { post.author_id }</p>
         <Link onClick={ this.deleteData } to={ `/` }>
           Delete Post
         </Link>
         <br />
-        <Link to={ `/edit/${post.id}` }>Edit Post</Link>
+        <Link to={ `/update/${post.id}` }>Edit Post</Link>
       </div>
     );
   }

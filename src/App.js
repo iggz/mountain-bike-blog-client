@@ -11,7 +11,7 @@ import OneAuthor from "./Authors/oneAuthor";
 
 const routesArray = [
   { linkRoute: "/", linkName: "Home" },
-  { linkRoute: "/add", linkName: "Add Post" },
+  { linkRoute: "/v1/add_post", linkName: "Add Post" },
   { linkRoute: "/allAuthors", linkName: "Authors" }
 ];
 
@@ -22,10 +22,10 @@ function App() {
       <Nav routes={ routesArray } />
       <Route path="/" exact component={ BlogList } />
       <Route path="/post/:post_id?" component={ BlogPost } />
-      <Route path="/add" exact component={ AddPost } />
-      <Route path="/edit/:post_id?" exact component={ EditPost } />
+      <Route path="/v1/add_post" component={ AddPost } />
+      <Route path="/update/:post_id?" component={ EditPost } />
       <Route path="/allAuthors" exact component={ AuthorList } />
-      {/* <Route path="/author/:author_id?" exact component={ OneAuthor } /> */ }
+      <Route path="/author/:author_id?" component={ OneAuthor } />
     </Router>
   );
 }
