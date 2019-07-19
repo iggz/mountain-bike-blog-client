@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./BlogAddPost.css";
+import { Button } from "react-bulma-components/full";
 
 class AddPost extends Component {
     state = {
@@ -77,7 +77,7 @@ class AddPost extends Component {
                         name="author_id"
                     />
                     <br />
-                    <input className="button" type="submit" value="Submit" />
+                    <Button className="button is-link" type="submit" >Submit </Button>
                 </form>
             </>
         );
